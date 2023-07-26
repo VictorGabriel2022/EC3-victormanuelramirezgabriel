@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmnets.InfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="284dp"
+        android:src="@drawable/logoyugioh" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="309dp"
+        android:layout_height="269dp"
+        android:text="Yu-Gi-Oh! Trading Card Game (遊☆戯☆王オフィシャルカードゲーム Yū☆Gi☆Ō Ofisharu Kādo Gēmu?) es un juego de cartas coleccionables de origen japonés desarrollado y publicado por Konami. Está basado en el juego ficticio de Duelo de Monstruos creado por el mangaka Kazuki Takahashi, que es el principal argumento que se desarrolla en su popular manga Yu-Gi-Oh! y en las series creadas por Nihon Ad Systems Yu-Gi-Oh! Duel Monsters, Yu-Gi-Oh! Duel Monsters GX, Yu-Gi-Oh! 5D's, Yu-Gi-Oh! Zexal, &quot;Yu-Gi-Oh! ARC-V&quot; y &quot;Yu-Gi-Oh VRAINS&quot; (aparece de forma intermitente y con el nombre de Magia y Hechiceros, en referencia al juego de cartas de Wizards of the Coast Magic: el encuentro, en la versión japonesa del manga de 1998, Yu-Gi-Oh!). Yu-Gi-Oh! Trading Card Game, a menudo abreviado como Yu-Gi-Oh! TCG, fue el primero lanzado por Konami en 1999. Fue nombrado el juego de cartas coleccionables con cartas más vendidas en el mundo por el Libro Guinness de récords mundiales en 2009."
+        android:translationX="55dp"
+        android:translationY="250dp" />
+
+</FrameLayout>
