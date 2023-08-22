@@ -4,57 +4,68 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ec3.CardAdapter
-import com.example.ec3.R
-import com.example.ec3.model.CardDetails
-import com.google.gson.Gson
-import okhttp3.*
-import java.io.IOException
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+
+import com.example.ec3.databinding.FragmentListBinding
+
 
 class ListFragment : Fragment() {
+             private lateinit var binding: FragmentListBinding
+             private lateinit var viewModel: CardListViewModel
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var cardAdapter: CardAdapter
+             override  fun onCreate(savedInstanceState:Bundle?){
+                 super.onCreate(savedInstanceState)
+                 viewModel = ViewModelProvider(requireActivity()).get(CardListViewModel::class.java)
+             }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
-
-        recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        cardAdapter = CardAdapter(emptyList())
-        recyclerView.adapter = cardAdapter
-
-
-        val client = OkHttpClient()
-        val request = Request.Builder()
-            .url("https://db.ygoprodeck.com/api/v7/cardinfo.php")
-            .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful) {
-                    val json = response.body?.string()
-                    val cardDetails = Gson().fromJson(json, CardDetails::class.java)
-                    val cards = cardDetails.data
-
-                    activity?.runOnUiThread {
-                        cardAdapter.setData(cards)
-                    }
-                } else {
-
-                }
-            }
-
-            override fun onFailure(call: Call, e: IOException) {
-
-            }
-        })
-
-        return view
+        binding= FragmentListBinding.inflate(inflater,container,false)
+        return binding.root
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val adapter = CardAdapter(listOf()){cards ->
+            val couponDetailDirection = ListFragmentDirections.actionListFragmentToDetailsCardFragment(cards)
+            findNavController().navigate(couponDetailDirection)
+
+        }
+        binding.recyclerView.adapter =  adapter
+        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(),1,RecyclerView.VERTICAL, false)
+        viewModel.cardList.observe(requireActivity()){
+            adapter.cards = it
+            adapter.notifyDataSetChanged()
+        }
+        viewModel.getCouponsFromService()
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

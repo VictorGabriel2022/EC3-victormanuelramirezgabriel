@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,15 +7,41 @@
         android:id="@+id/listFragment"
         android:name="com.example.ec3.fragmnets.ListFragment"
         android:label="fragment_list"
-        tools:layout="@layout/fragment_list" />
+        tools:layout="@layout/fragment_list"
+        >
+        <action
+            android:id="@+id/action_listFragment_to_detailsCardFragment"
+            app:destination="@id/detailsCardFragment"
+            app:popUpTo="@id/detailsCardFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/favoriteFragment2"
         android:name="com.example.ec3.fragmnets.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment2_to_detailsCardFragment"
+            app:destination="@id/detailsCardFragment"
+            app:popUpTo="@id/favoriteFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.ec3.fragmnets.InfoFragment"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/detailsCardFragment"
+        android:name="com.example.ec3.fragmnets.DetailsCardFragment"
+        android:label="fragment_details_card"
+        tools:layout="@layout/fragment_details_card" >
+        <argument
+            android:name="carddetails"
+            app:argType="com.example.ec3.model.CardDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/cerrarFragment"
+        android:name="com.example.ec3.fragmnets.CerrarFragment"
+        android:label="fragment_cerrar"
+        tools:layout="@layout/fragment_cerrar" />
 </navigation>

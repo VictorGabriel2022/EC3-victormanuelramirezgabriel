@@ -13,6 +13,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.fabAddCard.setOnClickListener {
+            val intent = Intent(this, Addcard::class.java)
+            startActivity(intent)
+        }
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fcv_coupon) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bnvMenu.setupWithNavController(navController)

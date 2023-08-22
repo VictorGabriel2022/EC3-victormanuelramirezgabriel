@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "486598373184",
+    "project_id": "cuponex-1f17b",
+    "storage_bucket": "cuponex-1f17b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486598373184:android:74faf53b7d4915f75654a5",
+        "android_client_info": {
+          "package_name": "com.example.ec3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486598373184-7drtkfahcookl938gng058gb99tg2244.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ec3",
+            "certificate_hash": "e352db2a0dd50f67fd106debb245c8ac55f76802"
+          }
+        },
+        {
+          "client_id": "486598373184-ktaenfbpdlb0npeufkol8ksidc6iqvjo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHzUprvquRf5RUFa8Yp6oIvXXEfi9jwuQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486598373184-emsvtpf2nrq60cfr0v6pkphtimerf4dt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

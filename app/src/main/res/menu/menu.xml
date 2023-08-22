@@ -13,4 +13,8 @@
         android:id="@id/infoFragment"
         android:icon="@drawable/baseline_info_24"
         android:title="info" />
+    <item
+        android:id="@id/cerrarFragment"
+        android:icon="@drawable/baseline_info_24"
+        android:title="cerrar" />
 </menu>

@@ -1,45 +1,38 @@
 package com.example.ec3.model
 
-data class CardDetails(val data: List<Card>)
 
-data class Card(
-    val id: Int,
-    val name: String,
-    val type: String,
-    val frameType: String,
-    val desc: String,
-    val atk: Int,
-    val def: Int,
-    val level: Int,
-    val race: String,
-    val attribute: String,
-    val archetype: String,
-    val card_sets: List<SetInfo>,
-    val card_images: List<ImageInfo>,
-    val card_prices: List<PriceInfo>,
-
-)
-
-data class SetInfo(
-    val set_name: String,
-    val set_code: String,
-    val set_rarity: String,
-    val set_rarity_code: String,
-    val set_price: String
-)
-
-data class ImageInfo(
-    val id: Int,
-    val image_url: String,
-    val image_url_small: String,
-    val image_url_cropped: String
-)
-
-data class PriceInfo(
-    val cardmarket_price: String,
-    val tcgplayer_price: String,
-    val ebay_price: String,
-    val amazon_price: String,
-    val coolstuffinc_price: String
-)
-
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
+@Entity(tableName = "card")
+@Parcelize
+data class CardDetails(
+    @PrimaryKey
+    val id:Int,
+    val title:String,
+    val thumbnail: String,
+    val short_description: String,
+    val game_url: String,
+    val genre: String,
+    val platform: String,
+    val publisher: String,
+    val developer: String,
+    val release_date: String,
+    val profile_url: String,
+    var isFavorite:Boolean=false
+) : Parcelable
+fun getData():List<CardDetails>{
+    return listOf(
+        CardDetails
+            (1,"dfsdfsdf","ruta_imagen"   ,
+            "Big changes come to the Overwatch formula in this sequel...and so does PvE content, eventually.",
+            "https://www.mmobomb.com/open/overwatch-2",
+            "Shooter",
+            "PC (Windows)",
+            "Activision Blizzard King",
+            "Blizzard Entertainment",
+            "2022-10-04",
+            "https://www.mmobomb.com/overwatch-2"),
+    )
+}
